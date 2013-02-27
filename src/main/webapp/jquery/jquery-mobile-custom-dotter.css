@@ -1,0 +1,120 @@
+/*!
+ * jQuery Mobile v1.0b3
+ * http://jquerymobile.com/
+ *
+ * Copyright 2010, jQuery Project
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ */
+ 
+ /* ---------------------------------black---------------------------------------------- */
+.ui-bar-f {
+	border: 1px solid #2a2a2a;
+	background: #111;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 -1px 1px #000;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#3c3c3c),
+		to(#111) );
+	background-image: -webkit-linear-gradient(top, #3c3c3c, #111);
+	background-image: -moz-linear-gradient(top, #3c3c3c, #111);
+	background-image: -ms-linear-gradient(top, #3c3c3c, #111);
+	background-image: -o-linear-gradient(top, #3c3c3c, #111);
+	background-image: linear-gradient(top, #3c3c3c, #111)
+}
+
+.ui-bar-f,.ui-bar-f input,.ui-bar-f select,.ui-bar-f textarea,.ui-bar-f button
+	{
+	font-family: Helvetica, Arial, sans-serif
+}
+
+.ui-bar-f .ui-link-inherit {
+	color: #fff
+}
+
+.ui-bar-f .ui-link {
+	color: #7cc4e7;
+	font-weight: bold
+}
+
+.ui-body-f {
+	border: 1px solid #2a2a2a;
+	background: #222;
+	color: #666666;
+	font-weight: normal;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#666),
+		to(#222) );
+	background-image: -webkit-linear-gradient(top, #666, #222);
+	background-image: -moz-linear-gradient(top, #666, #222);
+	background-image: -ms-linear-gradient(top, #666, #222);
+	background-image: -o-linear-gradient(top, #666, #222);
+	background-image: linear-gradient(top, #666, #222)
+}
+
+.ui-body-f,.ui-body-f input,.ui-body-f select,.ui-body-f textarea,.ui-body-f button
+	{
+	font-family: Helvetica, Arial, sans-serif
+}
+
+.ui-body-f .ui-link-inherit {
+	color: #fff
+}
+
+.ui-body-f .ui-link {
+	color: #2489ce;
+	font-weight: bold
+}
+
+.ui-br {
+	border-bottom: #828282;
+	border-bottom: rgba(130, 130, 130, .3);
+	border-bottom-width: 1px;
+	border-bottom-style: solid
+}
+
+.ui-btn-up-f {
+	border: 1px solid #f7ac09;
+	background: #fff;
+	color: #666666;
+	
+}
+
+.ui-btn-up-f a.ui-link-inherit {
+	color: #fff
+}
+
+.ui-btn-hover-f {
+	border: 1px solid #f7ac09;
+	background: #ffffff;
+	color: #666666;
+}
+
+.ui-btn-hover-f a.ui-link-inherit {
+	color: #fff
+}
+
+.ui-btn-down-f {
+	border: 1px solid #f7ac09;
+	background: #ffffff;
+	color: #666666;
+}
+
+.ui-btn-down-f a.ui-link-inherit {
+	color: #fff
+}
+
+.ui-btn-up-f,.ui-btn-hover-f,.ui-btn-down-f {
+	font-family: Helvetica, Arial, sans-serif;
+	text-decoration: none
+}
+
+
+
+.ui-bar-f {
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .3)
+}
+
+.ui-icon-dotter {background-image: url(../images/smart_down.png);
+}
