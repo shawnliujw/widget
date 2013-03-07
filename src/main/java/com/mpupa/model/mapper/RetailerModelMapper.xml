@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.mpupa.model.RetailerModel">  
+
+    <select id="getRetailersByBrandName" parameterType="String" resultType="RetailerModel">  
+    <![CDATA[
+    	select distinct(r.id),r.name,r.logo_url  from retailer r left join product_retailer pr on pr.retailer_id=r.id left join product p on p.id=pr.product_id left join brand b on p.brand_id=b.id where r.valid=0 and b.name=#{brandName} order by r.name
+    ]]>
+    </select>  
+</mapper>

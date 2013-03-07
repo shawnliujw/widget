@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mpupa.model.category">
+
+	<select id="getCategoryById" parameterType="int" resultType="CategoryModel">  
+    	<![CDATA[select * from category where id = #{id} ]]>
+	</select>
+	
+	<select id="listCategory" resultType="CategoryModel">
+		select c.id,c.name,c.category_img as imageUrl,c.default_selected as defaultSelected from category c order by c.third_name
+	</select>
+	<select id="getCategoryByBrand" resultType="CategoryModel" parameterType="java.util.Map">
+		select c.id,c.name,c.category_img as imageUrl,c.default_selected as defaultSelected ,c.second_name as secondName,c.third_name as thirdName
+		from category c left join _brand_category b on c.id=b.category_id left join brand b1 on b1.id=b.brand_id where b1.name=#{brandName} order by c.third_name
+	</select>
+</mapper>

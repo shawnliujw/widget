@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mpupa.model.product">
+
+
+	<select id="getProductById" parameterType="java.util.Map" resultType="ProductModel">  
+    	<![CDATA[
+    		select p.id as productId,p.sku,p.ean,p.product_name as productName,p.product_breakdown_1 as productBreakdown1,p.product_breakdown_2 as productBreakdown2
+,p.product_breakdown_3 as productBreakdown3,p.product_breakdown_4 as productBreakdown4,p.weight_vol as weightVol,p.package_quantity as packageQuantity
+,p.unit_weight_vol as unitWeightVol,p.img_url as imageUrl,p.description,p.additional_info as additionalInfo,p.other_information as otherInfo
+,p.life_style as lifeStyle,p.allergy_advice as allergyAdvice,p.in_storage as storageDetail,r.price_now as nowPrice,r.price_was as wasPrice,p.brand_id as brandId,p.client_id as clientId,r.retailer_id as retailerId
+,r.in_stock as inStock,r.product_url as productUrl,o.name as offerName,o.id as offerId,p.nutrition,p.ingredients,p.usagee as usageDetail,p.additives,p.in_storage as storageDetail
+ from product p left join product_retailer r on p.id=r.product_id left join offer o on o.id=r.offer_id left join retailer t on r.retailer_id=t.id
+  where p.id=#{productId} and t.name=#{retailerName} and p.valid='0' and t.valid='0' and r.in_stock='0'
+    	]]>
+	</select>
+	<select id="searchProducts" parameterType="java.util.Map" resultType="ProductModel">  
+    	<!-- <![CDATA[ -->
+    		select p.id as productId,p.sku,p.ean,p.product_name as productName,p.product_breakdown_1 as productBreakdown1,p.product_breakdown_2 as productBreakdown2
+,p.product_breakdown_3 as productBreakdown3,p.product_breakdown_4 as productBreakdown4,p.weight_vol as weightVol,p.package_quantity as packageQuantity
+,p.unit_weight_vol as unitWeightVol,p.img_url as imageUrl,p.description,p.additional_info as additionalInfo,p.other_information as otherInfo
+,p.life_style as lifeStyle,p.allergy_advice as allergyAdvice,p.in_storage as storageDetail,r.price_now as nowPrice,r.price_was as wasPrice,p.brand_id as brandId,p.client_id as clientId,r.retailer_id as retailerId
+,r.in_stock as inStock,r.product_url as productUrl,o.name as offerName,o.id as offerId,p.nutrition,p.ingredients,p.usagee as usageDetail,p.additives,p.in_storage as storageDetail
+ from product p left join product_retailer r on p.id=r.product_id left join offer o on o.id=r.offer_id left join retailer t on r.retailer_id=t.id 
+left join _product_category pc on p.id=pc.product_id left join category ca on ca.id=pc.category_id 
+left join brand br on br.id=p.brand_id where br.name=#{brandName} 
+
+
+    	<if test="categoryName != null">
+    	and ca.name=#{categoryName}
+    	</if>
+ and t.name=#{retailerName} and t.valid='0' and p.valid='0' and r.in_stock='0' order by p.product_breakdown_4 desc
+    	<!-- ]]>  -->
+	</select>
+	
+	<select id="searchProductsForAs" parameterType="java.util.Map" resultType="ProductModel">  
+    		select p.id as productId,p.product_name as productName,p.product_breakdown_1 as productBreakdown1,p.product_breakdown_2 as productBreakdown2
+,p.product_breakdown_3 as productBreakdown3,p.product_breakdown_4 as productBreakdown4,p.weight_vol as weightVol,p.package_quantity as packageQuantity
+,p.unit_weight_vol as unitWeightVol,p.img_url as imageUrl,r.price_now as nowPrice,r.price_was as wasPrice,r.product_url as productUrl,o.name as offerName,o.id as offerId
+ from product p left join product_retailer r on p.id=r.product_id left join offer o on o.id=r.offer_id left join retailer t on r.retailer_id=t.id 
+left join _product_category pc on p.id=pc.product_id left join category ca on ca.id=pc.category_id 
+left join brand br on br.id=p.brand_id where br.name=#{brandName} 
+
+
+    	and ca.name=#{categoryName}
+ and t.name=#{retailerName} and t.valid='0' and p.valid='0' and r.in_stock='0' order by p.product_name
+	</select>
+	
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mpupa.model.brand">
+
+<resultMap type="java.util.Map" id="brandRelationInfo">
+	<result property="brandId" column="brandId"/>
+	<result property="brandName" column="brandName"/>
+	<result property="logoUrl" column="logo_url"/>
+	<result property="strap" column="strap"/>
+	<result property="description" column="brandDescription"/>
+	<result property="mobileTemplateFolder" column="mobile_folder_name"/>
+	<result property="pcTemplateFolder" column="pc_folder_name"/>
+	<result property="gaNumber" column="ga_number"/>
+</resultMap>
+
+<resultMap type="java.util.Map" id="brandCategory">
+<result property="retailerName" column="retailerName"/>
+<result property="categoryName" column="categoryName"/>
+</resultMap>
+
+
+	<select id="getBrandById" parameterType="int" resultType="BrandModel">  
+    	<![CDATA[select * from brand where id = #{brandId} ]]>
+	</select>
+	<select id="getBrandByName" parameterType="string" resultType="BrandModel">  
+    	<![CDATA[select * from brand where name = #{brandName} ]]>
+	</select>
+	<select id="getBrandDetailsByName" parameterType="string" resultMap="brandRelationInfo">  
+    	<![CDATA[select b.id as brandId,b.name as brandName,b.logo_url,b.ga_number,
+    	b.strap,b.description as brandDescription,t.folder_name as pc_folder_name, m.folder_name as mobile_folder_name
+    	 from brand b left join template t on b.pc_template_id=t.id left join template m on b.mobile_template_id=m.id where b.name = #{brandName} ]]>
+	</select>
+	
+	<select id="getCategoryByName" parameterType="string" resultMap="brandCategory">
+		select r.name as retailerName,c.name as categoryName from retailer r left join product_retailer pr on r.id=pr.retailer_id left join  
+		product p on pr.product_id=p.id left join _product_category pc on pc.product_id=p.id left join category c on pc.category_id=c.id left join brand b on p.brand_id=b.id 
+		where b.name=#{brandName} group by r.name,c.name
+	</select>
+</mapper>

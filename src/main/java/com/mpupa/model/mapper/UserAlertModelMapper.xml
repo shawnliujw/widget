@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mpupa.model.userAlert">
+
+	<select id="saveUserAlert" parameterType="CategoryModel" >  
+    	<![CDATA[insert into user_alert (user_name,retailer_id,brand_id,client_id,update_time)
+    	  values (#{userName},#{retailerId},#{brandId},#{clientId},now())]]>
+	</select>
+	
+	<select id="getUserAlert" resultType="CategoryModel" parameterType="java.util.Map">
+		select * from user_alert u where u.user_name=#{userName} and u.brand_id=#{brandId}
+	</select>
+	
+	<select id="listUserAlert" resultType="CategoryModel">
+		select * from user_alert
+	</select>
+</mapper>

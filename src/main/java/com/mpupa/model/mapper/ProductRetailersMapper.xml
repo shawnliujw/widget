@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mpupa.model.ProductRetailersModel">
+
+
+	<select id="getUniqueEvent" parameterType="int" resultType="ProductRetailersModel">  
+    	<![CDATA[select id,summary,img,event_info eventInfo from tab_nts_event where id = #{id} ]]>
+	</select>
+</mapper>

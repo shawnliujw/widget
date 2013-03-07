@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+    <typeAliases>  
+        <typeAlias alias="RetailerModel" type="com.mpupa.model.RetailerModel"/>  
+        <typeAlias alias="BrandModel" type="com.mpupa.model.BrandModel"/>  
+        <typeAlias alias="ProductModel" type="com.mpupa.model.ProductModel"/>  
+        <typeAlias alias="CategoryModel" type="com.mpupa.model.CategoryModel"/>  
+        <typeAlias alias="ProductRetailersModel" type="com.mpupa.model.ProductRetailersModel"/>  
+        <typeAlias alias="UserAlertModel" type="com.mpupa.model.UserAlertModel"/>  
+        <typeAlias alias="OfferModel" type="com.mpupa.model.OfferModel"/> 
+        <typeAlias alias="CptModel" type="com.mpupa.model.CptModel"/> 
+    </typeAliases>  
+      
+    <mappers>  
+        <mapper resource="com/mpupa/model/mapper/RetailerModelMapper.xml"/>  
+        <mapper resource="com/mpupa/model/mapper/BrandModelMapper.xml"/>  
+        <mapper resource="com/mpupa/model/mapper/CategoryModelMapper.xml"/>  
+        <mapper resource="com/mpupa/model/mapper/ProductModelMapper.xml"/>  
+        <mapper resource="com/mpupa/model/mapper/UserAlertModelMapper.xml"/> 
+        <mapper resource="com/mpupa/model/mapper/OfferModelMapper.xml"/>  
+        <mapper resource="com/mpupa/model/mapper/FlashModelMapper.xml"/>  
+        <mapper resource="com/mpupa/model/mapper/CptModelMapper.xml"/> 
+    </mappers>  
+</configuration>  
